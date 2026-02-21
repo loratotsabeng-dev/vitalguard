@@ -10,11 +10,11 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 - Vital guard-a unified platform that shifts healthcare from reactive to proactive by combining three capabilities-to eliminate delays in medical response, which are:
 
 ### Remote monitoring
--Web based dashboard with live updates
+- Web based dashboard with live updates
 
 ### Predictive analytics 
--Risk scores displayed on dashbooard
--Early warnings help prevent clinical deterioration events
+- Risk scores displayed on dashbooard
+- Early warnings help prevent clinical deterioration events
 
 ### Virtual assistance
 -AI powered chatbot for clinicians to query drug dosages, etc
