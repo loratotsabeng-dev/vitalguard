@@ -6,7 +6,7 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 - Clinicians are reactive, often detecting deterioration only after a crisis.
 - Rural and understaffed facilities lack continuous monitoring.
 
-## Solution overview
+## 💡 Solution overview
 - Vital guard-a unified platform that shifts healthcare from reactive to proactive by combining three capabilities-to eliminate delays in medical response, which are:
 
 ### Remote monitoring
@@ -17,10 +17,10 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 - Early warnings help prevent clinical deterioration events
 
 ### Virtual assistance
--AI powered chatbot for clinicians to query drug dosages, etc
--Integration with medical systems and records
+- AI powered chatbot for clinicians to query drug dosages, patient history
+- Integration with medical systems and records
 
-## Key Features
+## ✨ Key Features
 - Real-time dashboard
 - Risk prediction
 - Smart Alerts
@@ -37,5 +37,5 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 |Deployment    |                                     |
 |Testing       |Jest(frontend), Pytest(backend)      |
 
-## Installation and Setup
+## 🔧 Installation and Setup
 
