@@ -1,0 +1,1263 @@
+/* ═══════════════════════════════════════════════════
+   HEALTH COMPANION — styles.css
+═══════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────
+   1. RESET & VARIABLES
+───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue-dark:    #0a2d6e;
+  --blue-mid:     #1a56db;
+  --blue-light:   #e8f0fe;
+  --blue-accent:  #3b82f6;
+  --white:        #ffffff;
+  --off-white:    #f5f8ff;
+  --text-dark:    #0f1c35;
+  --text-muted:   #6b7a99;
+  --border:       #d0dff7;
+  --alert-red:    #e53e3e;
+  --font:         'Segoe UI', system-ui, -apple-system, sans-serif;
+  --radius:       12px;
+  --section-pad:  2rem;
+}
+
+
+/* ─────────────────────────────────────────────────
+   2. BASE / BODY
+───────────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  font-family: var(--font);
+  font-size: 16px;
+  background-color: var(--off-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+
+/* ─────────────────────────────────────────────────
+   3. NAVIGATION
+───────────────────────────────────────────────── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--blue-dark);
+  padding: 1rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(10, 45, 110, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--blue-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+
+/* ─────────────────────────────────────────────────
+   4. MAIN CONTENT LAYOUT
+   FIX: align-items: stretch makes both columns
+   grow to the same height automatically
+───────────────────────────────────────────────── */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;        /* KEY: both columns same height */
+  gap: 1.5rem;
+  padding: var(--section-pad) 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+/* ─────────────────────────────────────────────────
+   5. QUESTIONNAIRE PREVIEW (left column)
+   FIX: fill full height of the grid row
+───────────────────────────────────────────────── */
+#questionnaire {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;                /* fills the grid cell */
+}
+
+#questionnaire h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.questionnaire-preview {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                     /* stretches to fill remaining space */
+  text-decoration: none;
+  background: var(--off-white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.questionnaire-preview:hover {
+  border-color: var(--blue-mid);
+  box-shadow: 0 6px 24px rgba(26, 86, 219, 0.12);
+  transform: translateY(-2px);
+}
+
+.preview-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.preview-icon {
+  font-size: 2rem;
+}
+
+.preview-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.preview-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.preview-questions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  flex: 1;                     /* pushes CTA button to the bottom */
+}
+
+.preview-questions li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  background: var(--white);
+  border-radius: 6px;
+  border-left: 3px solid var(--blue-light);
+}
+
+.preview-cta {
+  text-align: center;
+  background: var(--blue-mid);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  margin-top: auto;            /* always sits at the bottom */
+}
+
+.questionnaire-preview:hover .preview-cta {
+  background: var(--blue-dark);
+}
+
+
+/* ─────────────────────────────────────────────────
+   6. RIGHT COLUMN — QR + PRESCRIPTIONS STACKED
+   FIX: flex column that fills grid height
+───────────────────────────────────────────────── */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;                /* fills the grid cell */
+}
+
+/* Standalone QR section */
+#medical-history {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  flex-shrink: 0;              /* stays its natural height */
+}
+
+#medical-history h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.qr-standalone {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.qr-standalone .qr-placeholder {
+  width: 90px;
+  height: 90px;
+  background: var(--off-white);
+  border: 2px dashed var(--blue-mid);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.qr-standalone .qr-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-standalone .qr-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 0.3rem;
+}
+
+.qr-standalone .qr-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Prescriptions fills remaining right column space */
+#prescriptions {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  flex: 1;                     /* takes up whatever space QR doesn't use */
+  overflow-y: auto;
+}
+
+#prescriptions h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.prescription-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.prescription-header span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--blue-mid);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.toggle-btn:hover {
+  background: var(--blue-mid);
+  color: var(--white);
+}
+
+.prescription-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.prescription-list.collapsed {
+  display: none;
+}
+
+.prescription-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  background: var(--off-white);
+}
+
+.prescription-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+.prescription-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.mark-taken-btn {
+  margin-top: 0.8rem;
+  background: var(--blue-mid);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.mark-taken-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.mark-taken-btn:active {
+  transform: translateY(0);
+}
+
+
+/* ─────────────────────────────────────────────────
+   7. EMERGENCY SOS
+   FIX: match width and margin of .main-content
+───────────────────────────────────────────────── */
+#emergency {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem var(--section-pad);
+  text-align: center;
+  max-width: 1400px;
+  width: calc(100% - 5rem);   /* matches main-content side padding */
+  margin: 0 auto 2.5rem;
+}
+
+#emergency h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+#emergency > p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.sos-btn {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: none;
+  background: var(--alert-red);
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  animation: sosPulse 1.6s ease-in-out infinite;
+}
+
+.sos-btn:hover {
+  transform: scale(1.08);
+}
+
+.sos-btn:active {
+  transform: scale(0.95);
+}
+
+#sos-status {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--blue-mid);
+  min-height: 1.4rem;
+}
+
+
+/* ─────────────────────────────────────────────────
+   8. MODAL
+───────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 45, 110, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 40px rgba(10, 45, 110, 0.2);
+  transform: scale(0.92);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-box-box {
+  transform: scale(1);
+}
+
+.modal h2 {
+  font-size: 1.3rem;
+  color: var(--alert-red);
+  margin-bottom: 0.75rem;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+#confirmBtn {
+  background: var(--alert-red);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.75rem;
+  transition: background 0.2s;
+}
+
+#confirmBtn:hover { background: #c53030; }
+
+#cancelBtn {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+#cancelBtn:hover {
+  border-color: var(--blue-mid);
+  color: var(--blue-mid);
+}
+
+
+/* ─────────────────────────────────────────────────
+   9. ANIMATIONS
+───────────────────────────────────────────────── */
+@keyframes sosPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7), 0 4px 20px rgba(229,62,62,0.4); }
+  50%  { box-shadow: 0 0 0 22px rgba(229, 62, 62, 0), 0 4px 20px rgba(229,62,62,0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0),   0 4px 20px rgba(229,62,62,0.4); }
+}
+
+
+/* ─────────────────────────────────────────────────
+   10. QUESTIONNAIRE FORM PAGE
+───────────────────────────────────────────────── */
+.form-wrapper {
+  max-width: 720px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 2rem;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin-bottom: 0.4rem;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.health-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group > label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.option-group input[type="radio"] { display: none; }
+
+.option-group label {
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--off-white);
+}
+
+.option-group input[type="radio"]:checked + label {
+  background: var(--blue-mid);
+  color: var(--white);
+  border-color: var(--blue-mid);
+  font-weight: 600;
+}
+
+.option-group label:hover {
+  border-color: var(--blue-mid);
+  color: var(--blue-mid);
+}
+
+.scale-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scale-options {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.scale-options input[type="radio"] { display: none; }
+
+.scale-options label {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--off-white);
+  color: var(--text-muted);
+}
+
+.scale-options input[type="radio"]:checked + label {
+  background: var(--blue-mid);
+  color: var(--white);
+  border-color: var(--blue-mid);
+  font-weight: 700;
+}
+
+.scale-options label:hover {
+  border-color: var(--blue-mid);
+  color: var(--blue-mid);
+}
+
+.scale-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+textarea:focus { border-color: var(--blue-mid); }
+
+.submit-btn {
+  background: var(--blue-mid);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.success-msg {
+  display: none;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+}
+
+.success-msg span { font-size: 3rem; }
+
+.success-msg h2 {
+  font-size: 1.4rem;
+  color: var(--blue-dark);
+  margin: 1rem 0 0.5rem;
+}
+
+.success-msg p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  background: var(--blue-mid);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.back-btn:hover { background: var(--blue-dark); }
+
+
+/* ─────────────────────────────────────────────────
+   BOOTSTRAP OVERRIDES
+───────────────────────────────────────────────── */
+.navbar {
+  background-color: var(--blue-dark) !important;
+  padding: 1rem 0;
+  box-shadow: 0 2px 12px rgba(10, 45, 110, 0.3);
+}
+
+.navbar-brand.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.navbar .nav-link {
+  color: var(--blue-light) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--white) !important;
+}
+
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.3);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Ensure Bootstrap container aligns with our padding */
+.container-xl {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+}
+
+
+/* ─────────────────────────────────────────────────
+   FORM VALIDATION ERROR
+───────────────────────────────────────────────── */
+.form-error {
+  color: var(--alert-red);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  font-weight: 500;
+}
+
+
+/* ─────────────────────────────────────────────────
+   HAMBURGER MENU (mobile)
+───────────────────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animate hamburger to X when open */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─────────────────────────────────────────────────
+   MOBILE RESPONSIVE
+───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--blue-dark);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(10,45,110,0.3);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  .nav-links a { padding: 0.75rem 0; display: block; }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .right-column { gap: 1rem; }
+
+  #emergency {
+    width: calc(100% - 3rem);
+  }
+
+}
+
+
+/* ═══════════════════════════════════════════════════
+   AUTH PAGES — Login, Signup, Welcome
+═══════════════════════════════════════════════════ */
+
+.auth-body {
+  min-height: 100vh;
+  background: var(--off-white);
+  display: flex;
+  align-items: stretch;
+}
+
+/* ── Two panel layout ── */
+.auth-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ── Left branding panel ── */
+.auth-brand {
+  background: var(--blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background circle decoration */
+.auth-brand::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 80px solid rgba(255,255,255,0.04);
+  bottom: -150px;
+  right: -150px;
+}
+
+.auth-brand::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 60px solid rgba(255,255,255,0.04);
+  top: -80px;
+  left: -80px;
+}
+
+.auth-brand-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 380px;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.auth-logo img {
+  height: 38px;
+  width: auto;
+}
+
+.auth-logo .brand-name {
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.auth-tagline {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.auth-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+/* ── Right form panel ── */
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: var(--white);
+  overflow-y: auto;
+}
+
+.auth-form-box {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.5px;
+}
+
+.auth-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ── Form groups ── */
+.auth-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.auth-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.auth-group input,
+.auth-group select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background: var(--off-white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.auth-group input:focus,
+.auth-group select:focus {
+  border-color: var(--blue-mid);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+  background: var(--white);
+}
+
+/* ── Side by side row (age + gender) ── */
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── Password with show/hide toggle ── */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 3rem;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-muted);
+  padding: 0;
+  line-height: 1;
+}
+
+/* ── Phone with country code ── */
+.phone-wrap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.country-code-select {
+  width: auto !important;
+  flex-shrink: 0;
+  min-width: 110px;
+  border-radius: 8px;
+  padding: 0.7rem 0.5rem !important;
+}
+
+.phone-wrap input {
+  flex: 1;
+}
+
+/* ── Validation errors ── */
+.auth-error {
+  font-size: 0.78rem;
+  color: var(--alert-red);
+  font-weight: 500;
+  min-height: 1rem;
+}
+
+/* ── Forgot password ── */
+.auth-forgot {
+  text-align: right;
+  margin-bottom: 1.5rem;
+  margin-top: -0.5rem;
+}
+
+.auth-forgot a {
+  font-size: 0.82rem;
+  color: var(--blue-mid);
+  text-decoration: none;
+}
+
+.auth-forgot a:hover {
+  text-decoration: underline;
+}
+
+/* ── Submit button ── */
+.auth-btn {
+  width: 100%;
+  background: var(--blue-mid);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-family: var(--font);
+}
+
+.auth-btn:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+}
+
+.auth-btn:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Switch link ── */
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.auth-switch a {
+  color: var(--blue-mid);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   WELCOME PAGE
+═══════════════════════════════════════════════════ */
+
+.welcome-body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-wrapper {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 3rem 3.5rem;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(10, 45, 110, 0.3);
+  animation: welcomeFadeIn 0.6s ease both;
+}
+
+.welcome-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.welcome-logo img {
+  height: 36px;
+}
+
+.welcome-logo .brand-name {
+  color: var(--blue-dark);
+  font-size: 1.1rem;
+}
+
+.welcome-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: heartbeat 1.5s ease infinite;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.welcome-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+.welcome-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.welcome-feature {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.welcome-feature span {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.welcome-feature p {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+.welcome-btn {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ── Auth mobile responsive ── */
+@media (max-width: 768px) {
+  .auth-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand {
+    padding: 2.5rem 2rem;
+    min-height: auto;
+  }
+
+  .auth-tagline {
+    font-size: 1.8rem;
+  }
+
+  .auth-row {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ── Animations ── */
+@keyframes welcomeFadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.15); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.1); }
+  56%       { transform: scale(1); }
+}

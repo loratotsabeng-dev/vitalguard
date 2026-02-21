@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Health Check-in</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Brand Logo" />
+      <span class="brand-name">YOUR BRAND NAME</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="Index.html">&larr; Back to Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- QUESTIONNAIRE FORM -->
+  <div class="form-wrapper">
+
+    <div class="form-header">
+      <h1>Daily Health Check-in</h1>
+      <p>Answer honestly — this helps your care team monitor your wellbeing.</p>
+    </div>
+
+    <form class="health-form" id="healthForm">
+
+      <!-- Q1: Pain Level -->
+      <div class="form-group">
+        <label> How would you rate your pain level today?</label>
+        <div class="scale-group">
+          <span class="scale-label">No pain</span>
+          <div class="scale-options">
+            <input type="radio" name="pain" id="pain1"  value="1"  /><label for="pain1">1</label>
+            <input type="radio" name="pain" id="pain2"  value="2"  /><label for="pain2">2</label>
+            <input type="radio" name="pain" id="pain3"  value="3"  /><label for="pain3">3</label>
+            <input type="radio" name="pain" id="pain4"  value="4"  /><label for="pain4">4</label>
+            <input type="radio" name="pain" id="pain5"  value="5"  /><label for="pain5">5</label>
+            <input type="radio" name="pain" id="pain6"  value="6"  /><label for="pain6">6</label>
+            <input type="radio" name="pain" id="pain7"  value="7"  /><label for="pain7">7</label>
+            <input type="radio" name="pain" id="pain8"  value="8"  /><label for="pain8">8</label>
+            <input type="radio" name="pain" id="pain9"  value="9"  /><label for="pain9">9</label>
+            <input type="radio" name="pain" id="pain10" value="10" /><label for="pain10">10</label>
+          </div>
+          <span class="scale-label">Severe</span>
+        </div>
+      </div>
+
+      <!-- Q2: Mood -->
+      <div class="form-group">
+        <label> How is your mood and mental wellbeing today?</label>
+        <div class="option-group">
+          <input type="radio" name="mood" id="moodGreat" value="great"/><label for="moodGreat"> Great</label>
+          <input type="radio" name="mood" id="moodGood"  value="good" /><label for="moodGood"> Good</label>
+          <input type="radio" name="mood" id="moodOkay"  value="okay" /><label for="moodOkay"> Okay</label>
+          <input type="radio" name="mood" id="moodLow"   value="low"  /><label for="moodLow"> Low</label>
+          <input type="radio" name="mood" id="moodBad"   value="bad"  /><label for="moodBad"> Bad</label>
+        </div>
+      </div>
+
+      <!-- Q3: Sleep -->
+      <div class="form-group">
+        <label> How well did you sleep last night?</label>
+        <div class="option-group">
+          <input type="radio" name="sleep" id="sleepGreat" value="great"/><label for="sleepGreat">Very well</label>
+          <input type="radio" name="sleep" id="sleepOkay"  value="okay" /><label for="sleepOkay">Okay</label>
+          <input type="radio" name="sleep" id="sleepPoor"  value="poor" /><label for="sleepPoor">Poorly</label>
+          <input type="radio" name="sleep" id="sleepNone"  value="none" /><label for="sleepNone">Barely slept</label>
+        </div>
+      </div>
+
+      <!-- Q4: Energy -->
+      <div class="form-group">
+        <label> How are your energy levels today?</label>
+        <div class="option-group">
+          <input type="radio" name="energy" id="energyHigh"      value="high"     /><label for="energyHigh">High</label>
+          <input type="radio" name="energy" id="energyModerate"  value="moderate" /><label for="energyModerate">Moderate</label>
+          <input type="radio" name="energy" id="energyLow"       value="low"      /><label for="energyLow">Low</label>
+          <input type="radio" name="energy" id="energyExhausted" value="exhausted"/><label for="energyExhausted">Exhausted</label>
+        </div>
+      </div>
+
+      <!-- Q5: Symptoms -->
+      <div class="form-group">
+        <label> Are you experiencing any new symptoms?</label>
+        <textarea name="symptoms" id="symptoms" rows="3"
+          placeholder="e.g. headache, nausea, shortness of breath... or type 'none'"></textarea>
+      </div>
+
+      <!-- Q6: Medication -->
+      <div class="form-group">
+        <label> Have you taken your medication today?</label>
+        <div class="option-group">
+          <input type="radio" name="medication" id="medYes"  value="yes" /><label for="medYes">Yes, all of them</label>
+          <input type="radio" name="medication" id="medSome" value="some"/><label for="medSome">Some of them</label>
+          <input type="radio" name="medication" id="medNo"   value="no"  /><label for="medNo">Not yet</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Submit Check-in</button>
+
+    </form>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-msg" id="successMsg">
+      <span>✅</span>
+      <h2>Check-in Complete!</h2>
+      <p>Your responses have been recorded. Your care team will review them shortly.</p>
+      <a href="Index.html" class="back-btn">Back to Dashboard</a>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

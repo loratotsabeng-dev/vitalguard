@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Companion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  SECTOR 1: NAVIGATION / LOGO       -->
+  <!-- ═══════════════════════════════════ -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Brand Logo" />
+      <span class="brand-name">YOUR BRAND NAME</span>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#questionnaire">Daily Check-in</a></li>
+      <li><a href="#prescriptions">Prescriptions</a></li>
+      <li><a href="#emergency">Emergency</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  SECTORS 2 & 3: SIDE BY SIDE GRID  -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- SECTOR 2: QUESTIONNAIRE PREVIEW -->
+    <section id="questionnaire">
+      <h2>Daily Health Check-in</h2>
+
+      <a href="questionnaire.html" class="questionnaire-preview">
+        <div class="preview-top">
+          <div>
+            <p class="preview-title">How are you feeling today?</p>
+            <p class="preview-sub">Takes about 2 minutes</p>
+          </div>
+        </div>
+
+        <ul class="preview-questions">
+          <li> Pain level</li>
+          <li> Mood &amp; mental wellbeing</li>
+          <li> Sleep quality last night</li>
+          <li> Energy levels today</li>
+          <li> Any new symptoms?</li>
+          <li> Medication taken today?</li>
+        </ul>
+
+        <div class="preview-cta">Start Check-in &rarr;</div>
+      </a>
+    </section>
+
+    <!-- SECTOR 3: RIGHT COLUMN -->
+    <div class="right-column">
+
+      <!-- QR CODE -->
+      <section id="medical-history">
+        <h2>Medical History</h2>
+        <div class="qr-standalone">
+          <div class="qr-placeholder">
+            <img src="qr-code.png" alt="Scan to view medical history" />
+          </div>
+          <div class="qr-info">
+            <p class="qr-label">Scan QR Code</p>
+            <p class="qr-sub">Access your full medical records and files</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRESCRIPTIONS -->
+      <section id="prescriptions">
+        <h2>Prescription Reminders</h2>
+
+        <div class="prescription-header">
+          <span>Your Medications</span>
+          <button class="toggle-btn" id="togglePrescriptions">&#9650; Collapse</button>
+        </div>
+
+        <div class="prescription-list" id="prescriptionList">
+
+          <div class="prescription-card">
+            <h3>Medication Name</h3>
+            <p>Dosage: 500mg</p>
+            <p>Frequency: Twice daily</p>
+            <p>Next dose: 2:00 PM</p>
+            <button class="mark-taken-btn">Mark as Taken</button>
+          </div>
+
+          <div class="prescription-card">
+            <h3>Medication Name</h3>
+            <p>Dosage: 10mg</p>
+            <p>Frequency: Once daily</p>
+            <p>Next dose: 8:00 AM</p>
+            <button class="mark-taken-btn">Mark as Taken</button>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- end .right-column -->
+
+  </div><!-- end .main-content -->
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  SECTOR 4: EMERGENCY SOS           -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="emergency">
+    <h2>Emergency Response</h2>
+    <p>In case of a medical emergency, press the button below to alert emergency contacts and services.</p>
+    <button class="sos-btn" id="sosBtn">SOS</button>
+    <p id="sos-status"></p>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!--  EMERGENCY CONFIRMATION MODAL      -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <h2>Are you sure?</h2>
+      <p>This will alert your emergency contacts and the nearest medical facility.</p>
+      <div class="modal-actions">
+        <button id="confirmBtn">Yes, Send Alert</button>
+        <button id="cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

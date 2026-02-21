@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Health Companion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+
+    <!-- LEFT PANEL — Branding -->
+    <div class="auth-brand">
+      <div class="auth-brand-inner">
+        <div class="auth-logo">
+          <img src="logo.png" alt="Logo" />
+          <span class="brand-name">YOUR BRAND NAME</span>
+        </div>
+        <h1 class="auth-tagline">Your health,<br/>intelligently<br/>managed.</h1>
+        <p class="auth-desc">A unified platform combining remote monitoring, predictive analytics, and virtual assistance — keeping you healthy before problems arise.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL — Login Form -->
+    <div class="auth-form-panel">
+      <div class="auth-form-box">
+
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-subtitle">Log in to your health dashboard</p>
+
+        <form id="loginForm" novalidate>
+
+          <div class="auth-group">
+            <label for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail" name="email"
+              placeholder="you@example.com" autocomplete="email" />
+            <span class="auth-error" id="loginEmailError"></span>
+          </div>
+
+          <div class="auth-group">
+            <label for="loginPassword">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="loginPassword" name="password"
+                placeholder="Enter your password" autocomplete="current-password" />
+              <button type="button" class="toggle-password" data-target="loginPassword">👁</button>
+            </div>
+            <span class="auth-error" id="loginPasswordError"></span>
+          </div>
+
+          <div class="auth-forgot">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-btn" id="loginBtn">Log In</button>
+
+        </form>
+
+        <p class="auth-switch">
+          Don't have an account? <a href="signup.html">Sign up here</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
