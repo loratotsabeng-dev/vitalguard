@@ -135,5 +135,29 @@
 
   <script src="app.js"></script>
 
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBH0BLXASUYbdLYrGvBQagwu-NDJsOIRlA",
+    authDomain: "vital-guard-5f961.firebaseapp.com",
+    projectId: "vital-guard-5f961",
+    storageBucket: "vital-guard-5f961.firebasestorage.app",
+    messagingSenderId: "862951050515",
+    appId: "1:862951050515:web:2bebddea4e8828968c1ee6",
+    measurementId: "G-WSCN4B2TFJ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
