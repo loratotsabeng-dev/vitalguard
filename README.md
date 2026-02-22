@@ -21,18 +21,21 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 - Integration with medical systems and records
 
 ## ✨ Key Features
-- Real-time dashboard
+- Dashboard
 - Risk prediction
-- Smart Alerts
+- Emergency alerts
 - Clinician chatbot
+- Prescription reminders
+- QR code leading to medical history upon scan
+- Daily health check in questionnaire
 
 ## 🛠 Tech Stack
 
 |Component     |Technology                           |
 |--------------|-------------------------------------|
 |Frontend      |HTML, CSS, JavaScript                |
-|Backend       |Node.js                              |
-|Database      |MongoDB                              |
+|Backend       |Node.js + Express                    |
+|Database      |Firebase                             |
 |Chatbot       |                                     |
 |Deployment    |                                     |
 |Testing       |Jest(frontend), Pytest(backend)      |
