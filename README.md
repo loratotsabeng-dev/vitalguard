@@ -36,7 +36,6 @@ Patients exprience preventable deteoration due to fragmented health data and mis
 |Frontend      |HTML, CSS, JavaScript                |
 |Backend       |Node.js + Express                    |
 |Database      |Firebase                             |
-|Chatbot       |                                     |
 |Deployment    |                                     |
 |Testing       |Jest(frontend), Pytest(backend)      |
 
