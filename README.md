@@ -17,14 +17,12 @@ Patients experience preventable deteoration due to fragmented health data and mi
 - Early warnings help prevent clinical deterioration events
 
 ### Virtual assistance
-- AI powered chatbot for clinicians to query drug dosages, patient history
 - Integration with medical systems and records
 
 ## ✨ Key Features
 - Dashboard
 - Risk prediction
 - Emergency alerts
-- Clinician chatbot
 - Prescription reminders
 - QR code leading to medical history upon scan
 - Daily health check in questionnaire
@@ -36,8 +34,8 @@ Patients experience preventable deteoration due to fragmented health data and mi
 |Frontend      |HTML, CSS, JavaScript                |
 |Backend       |Node.js + Express                    |
 |Database      |Firebase                             |
-|Deployment    |                                     |
-|Testing       |Jest(frontend), Pytest(backend)      |
+|Deployment    |Github                               |
+|API's         |Twilio                               |
 
 ## 🔧 Installation and Setup
 Prerequisites
