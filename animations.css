@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════
+   ANIMATIONS.CSS
+   1. Page Transition
+   2. Animated Gradient Background
+   3. Floating Particles
+   4. ECG Heartbeat Line
+   5. Scroll Reveal
+   6. Per-page overrides
+═══════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────
+   1. PAGE TRANSITION
+   Pages fade + slide in on load
+   Pages fade out before navigating away
+───────────────────────────────────────────────── */
+body {
+  animation: pageEnter 0.5s ease both;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body.page-exit {
+  animation: pageExit 0.35s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes pageExit {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-16px); }
+}
+
+
+/* ─────────────────────────────────────────────────
+   2. ANIMATED GRADIENT BACKGROUND
+   Slowly shifts between blue shades — like breathing
+───────────────────────────────────────────────── */
+.auth-body {
+  background: linear-gradient(135deg, #060f2e, #0a2d6e, #1a56db, #0a2d6e);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite, pageEnter 0.5s ease both;
+}
+
+.welcome-body {
+  background: linear-gradient(135deg, #060f2e, #0a2d6e, #1a56db, #0a2d6e);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite, pageEnter 0.5s ease both;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* ─────────────────────────────────────────────────
+   3. FLOATING PARTICLES
+   Canvas sits fixed behind everything
+───────────────────────────────────────────────── */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Make sure content sits above canvas */
+nav,
+.main-content,
+.auth-wrapper,
+.welcome-wrapper,
+#emergency,
+.form-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ─────────────────────────────────────────────────
+   4. ECG HEARTBEAT LINE
+   Fixed bar at the bottom of the dashboard
+───────────────────────────────────────────────── */
+.ecg-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  z-index: 5;
+  pointer-events: none;
+  background: rgba(255,255,255,0.96);
+  border-top: 1px solid #d0dff7;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ecg-bar svg {
+  width: 200%;
+  height: 100%;
+  animation: ecgScroll 3s linear infinite;
+}
+
+.ecg-path {
+  fill: none;
+  stroke: #1a56db;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(26,86,219,0.5));
+}
+
+/* Add padding so content doesn't hide behind ECG bar */
+body.has-ecg {
+  padding-bottom: 52px;
+}
+
+@keyframes ecgScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ─────────────────────────────────────────────────
+   5. SCROLL REVEAL
+   Elements start invisible and slide up into view
+   JS adds .revealed class when they enter viewport
+───────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for multiple items revealing together */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+
+/* ─────────────────────────────────────────────────
+   6. CARD ENTRANCE — dashboard sectors
+───────────────────────────────────────────────── */
+#questionnaire  { animation: cardEnter 0.5s 0.1s ease both; }
+.right-column   { animation: cardEnter 0.5s 0.2s ease both; }
+#emergency      { animation: cardEnter 0.5s 0.35s ease both; }
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Auth form box entrance */
+.auth-form-box  { animation: cardEnter 0.5s 0.2s ease both; }
+.auth-brand-inner { animation: cardEnter 0.5s 0.1s ease both; }
+.welcome-card   { animation: cardEnter 0.6s 0.1s ease both; }
