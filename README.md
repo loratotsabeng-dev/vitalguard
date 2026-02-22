@@ -1,8 +1,8 @@
 # vitalguard
-a platform that combines remote monitoring, predictive analytics and virtual assistance to proactively manage patient health and support decisions.
+ a medical record and  medical emergency alerts website.
 
 ## The Problem
-Patients exprience preventable deteoration due to fragmented health data and missing early warnings.
+Patients experience preventable deteoration due to fragmented health data and missing early warnings.
 - Clinicians are reactive, often detecting deterioration only after a crisis.
 - Rural and understaffed facilities lack continuous monitoring.
 
